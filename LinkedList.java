@@ -39,7 +39,22 @@ public class LinkedList implements List {
 
 	@Override
 	public ReturnObject add(int index, Object item) {
-		return new ReturnObjectImpl();
+		if (index >= size || index < 0) {
+			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
+		} else if (item == null) {
+			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
+		} else if (firstItem.getIndex() == index) {
+			Item oldFirstItem = firstItem;
+			firstItem = new Item(item, 0);
+			firstItem.setNext(oldFirstItem);
+			oldFirstItem.incrementIndex();
+			size++;
+			return new ReturnObjectImpl();
+		} else {
+			firstItem.add(index, item);
+			size++;
+			return new ReturnObjectImpl();
+		}
 	}
 
 	@Override

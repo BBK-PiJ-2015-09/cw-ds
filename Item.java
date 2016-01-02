@@ -33,6 +33,15 @@ public class Item {
 	}
 	
 	/**
+	 * nextItem setter
+	 *
+	 * @param nextItem
+	 */
+	public void setNext(Item nextItem) {
+		this.nextItem = nextItem;
+	}
+	
+	/**
 	 * index getter
 	 *
 	 * @return index
@@ -78,6 +87,25 @@ public class Item {
 	}
 
 	/**
+	 * If the index of the nextItem matches the param, 
+	 * insert the new object as nextItem and increment 
+	 * the indices of the successor items by 1.
+	 *
+  	 * @param the index location for the new item
+	 * @param the new object
+	 */
+	public void add(int index, Object object) {
+		if (nextItem.getIndex() == index) {
+			Item newItem = new Item(object, index);
+			newItem.setNext(nextItem);
+			nextItem = newItem;
+			nextItem.getNext().incrementIndex();
+		} else {
+			nextItem.add(index, object);
+		}
+	}
+
+	/**
 	 * Add the next item in the list, or if there 
 	 * is already one, pass it to the next item. 
 	 * 
@@ -98,6 +126,16 @@ public class Item {
 		index--;
 		if (nextItem != null) {
 			nextItem.decrementIndex();
+		}
+	}
+	
+	/**
+	 * Increase index by 1. Call incrementIndex on the nextItem.
+	 */
+	public void incrementIndex() {
+		index++;
+		if (nextItem != null) {
+			nextItem.incrementIndex();
 		}
 	}
 }
