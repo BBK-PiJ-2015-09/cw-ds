@@ -23,7 +23,18 @@ public class LinkedList implements List {
 
 	@Override
 	public ReturnObject remove(int index) {
-		return new ReturnObjectImpl();
+		if (index >= size || index < 0) {
+			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
+		} else if (firstItem.getIndex() == index) {
+			Object removedObject = firstItem.getObject();
+			firstItem = firstItem.getNext();
+			decrementIndices();
+			size--;
+			return new ReturnObjectImpl(removedObject);
+		} else {
+			size--;
+			return new ReturnObjectImpl(firstItem.remove(index));
+		}
 	}
 
 	@Override
@@ -45,6 +56,15 @@ public class LinkedList implements List {
 				size++;
 				return new ReturnObjectImpl();
 			}
+		}
+	}
+
+	/**
+	 * Decrease indices of all Items by 1
+	 */
+	private void decrementIndices() {
+		if (firstItem != null) {
+			firstItem.decrementIndex();
 		}
 	}
 
