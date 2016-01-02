@@ -1,5 +1,6 @@
 public class LinkedList implements List {
 	private Item firstItem;
+	private int size;
 
 	@Override
 	public boolean isEmpty() {
@@ -8,12 +9,16 @@ public class LinkedList implements List {
 	
 	@Override
 	public int size() {
-		return 0;
+		return size;
 	}
 
 	@Override
 	public ReturnObject get(int index) {
-		return new ReturnObjectImpl();
+		if (index >= size || index < 0) {
+			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
+		} else {
+			return new ReturnObjectImpl(firstItem.get(index));
+		}
 	}
 
 	@Override
@@ -32,10 +37,12 @@ public class LinkedList implements List {
 			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
 		} else {
 			if (firstItem == null) {
-				firstItem = new Item(item);
+				firstItem = new Item(item, 0);
+				size = 1;
 				return new ReturnObjectImpl();
 			} else {
 				firstItem.add(item);
+				size++;
 				return new ReturnObjectImpl();
 			}
 		}
