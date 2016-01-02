@@ -2,16 +2,30 @@ public class ReturnObjectImpl implements ReturnObject {
 	private Object object;
 	private ErrorMessage errorMessage;
 	
+	/**
+	 * Constructor with object. Sets errorMessage to NO_ERROR.
+	 * 
+	 * @param object to be saved
+	 */
 	public ReturnObjectImpl(Object object) {
 		this.object = object;
 		errorMessage = ErrorMessage.NO_ERROR;
 	}
 	
+	/**
+	 * Constructor with errorMessage. Sets object to null.
+	 * 
+	 * @param error message to be saved
+	 */
 	public ReturnObjectImpl(ErrorMessage errorMessage) {
 		object = null;
 		this.errorMessage = errorMessage;
 	}
 	
+	/**
+	 * Constructor without params.
+	 * Sets object to null. Sets errorMessage to null.
+	 */
 	public ReturnObjectImpl() {
 		object = null;
 		errorMessage = null;
