@@ -3,7 +3,7 @@ public class LinkedList implements List {
 
 	@Override
 	public boolean isEmpty() {
-		return true;
+		return firstItem == null;
 	}
 	
 	@Override
@@ -32,7 +32,7 @@ public class LinkedList implements List {
 			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
 		} else {
 			if (firstItem == null) {
-				Item firstItem = new Item(item);
+				firstItem = new Item(item);
 				return new ReturnObjectImpl();
 			} else {
 				firstItem.add(item);
