@@ -27,13 +27,13 @@ public interface List {
 	 */
 	public boolean isEmpty();
 
-	// /**
-	//  * Returns the number of items currently in the list.
-	//  *
-	//  * @return the number of items currently in the list
-	//  */
-	// public int size();
-	//
+	/**
+	 * Returns the number of items currently in the list.
+	 *
+	 * @return the number of items currently in the list
+	 */
+	public int size();
+
 	// /**
 	//  * Returns the element at the given position.
 	//  *
@@ -45,7 +45,7 @@ public interface List {
 	//  *         encapsulated in a ReturnObject
 	//  */
 	// public ReturnObject get(int index);
-	//
+	// 
 	// /**
 	//  * Returns the elements at the given position and removes it
 	//  * from the list. The indeces of elements after the removed

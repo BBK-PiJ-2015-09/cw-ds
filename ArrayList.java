@@ -1,21 +1,27 @@
 public class ArrayList implements List {
-	Object[] list;
+	private Object[] list;
+	private int length;
 
 	/**
 	 * Constructor
 	 */
-	public ArrayList(Object object) {
+	public ArrayList() {
 		list = new Object[1];
-		list[0] = object;
+		length = 0;
 	}
 
 	@Override
 	public boolean isEmpty() {
-		if (list.length == 0) {
+		if (length == 0) {
 			return true;
 		} else {
 			return false;
 		}
+	}
+
+	@Override
+	public int size() {
+		return length;
 	}
 
 }
