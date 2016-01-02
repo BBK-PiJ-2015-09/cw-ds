@@ -4,12 +4,17 @@ public class ReturnObjectImpl implements ReturnObject {
 	
 	public ReturnObjectImpl(Object object) {
 		this.object = object;
-		this.errorMessage = ErrorMessage.NO_ERROR;
+		errorMessage = ErrorMessage.NO_ERROR;
 	}
 	
 	public ReturnObjectImpl(ErrorMessage errorMessage) {
-		this.object = null;
+		object = null;
 		this.errorMessage = errorMessage;
+	}
+	
+	public ReturnObjectImpl() {
+		object = null;
+		errorMessage = null;
 	}
 	
 	@Override
