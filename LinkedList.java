@@ -28,7 +28,9 @@ public class LinkedList implements List {
 		} else if (firstItem.getIndex() == index) {
 			Object removedObject = firstItem.getObject();
 			firstItem = firstItem.getNext();
-			decrementIndices();
+			if (firstItem != null) {
+				firstItem.decrementIndex();
+			}
 			size--;
 			return new ReturnObjectImpl(removedObject);
 		} else {
@@ -71,15 +73,6 @@ public class LinkedList implements List {
 				size++;
 				return new ReturnObjectImpl();
 			}
-		}
-	}
-
-	/**
-	 * Decrease indices of all Items by 1
-	 */
-	private void decrementIndices() {
-		if (firstItem != null) {
-			firstItem.decrementIndex();
 		}
 	}
 
