@@ -34,6 +34,17 @@ public class ArrayList implements List {
 	}
 
 	@Override
+	public ReturnObject remove(int index) {
+		if (index >= list.length || index < 0) {
+			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
+		} else {
+			Object removedObject = list[index];
+			list[index] = null;
+			return new ReturnObjectImpl(removedObject);
+		}
+	}
+	
+	@Override
 	public ReturnObject add(int index, Object item) {
 		if (index >= list.length || index < 0) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);

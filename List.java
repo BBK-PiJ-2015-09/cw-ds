@@ -46,19 +46,19 @@ public interface List {
 	 */
 	public ReturnObject get(int index);
 
-	// /**
-	//  * Returns the elements at the given position and removes it
-	//  * from the list. The indeces of elements after the removed
-	//  * element must be updated accordignly.
-	//  *
-	//  * If the index is negative or greater or equal than the size of
-	//  * the list, then an appropriate error must be returned.
-	//  *
-	//  * @param index the position in the list of the item to be retrieved
-	//  * @return the element or an appropriate error message,
-	//  *         encapsulated in a ReturnObject
-	//  */
-	// public ReturnObject remove(int index);
+	/**
+	 * Returns the elements at the given position and removes it
+	 * from the list. The indeces of elements after the removed
+	 * element must be updated accordignly.
+	 *
+	 * If the index is negative or greater or equal than the size of
+	 * the list, then an appropriate error must be returned.
+	 *
+	 * @param index the position in the list of the item to be retrieved
+	 * @return the element or an appropriate error message,
+	 *         encapsulated in a ReturnObject
+	 */
+	public ReturnObject remove(int index);
 
 	/**
 	 * Adds an element to the list, inserting it at the given

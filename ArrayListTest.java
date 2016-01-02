@@ -13,6 +13,11 @@ public class ArrayListTest {
 		System.out.println(list.add("second object").getReturnValue() == null);
 		System.out.println(list.get(0).getReturnValue() == "first object");
 		System.out.println(list.get(1).getReturnValue() == "second object");
+		list.remove(0);
+		System.out.println(list.get(0).getReturnValue() == null);
+		System.out.println(list.get(1).getReturnValue() == "second object");
+		list.remove(1);
+		System.out.println(list.get(1).getReturnValue() == null);
 	}
 
 }
