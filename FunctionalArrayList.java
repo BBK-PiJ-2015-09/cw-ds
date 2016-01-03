@@ -3,7 +3,7 @@ public class FunctionalArrayList extends ArrayList implements FunctionalList {
 	@Override
 	public ReturnObject head() {
 		if (isEmpty()) {
-			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
+			return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
 		} else {
 			return new ReturnObjectImpl(getList()[0]);
 		}
