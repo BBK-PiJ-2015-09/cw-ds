@@ -10,6 +10,15 @@ public class ArrayList implements List {
 		objectCount = 0;
 	}
 
+	/**
+	 * list getter
+	 *
+	 * @return list Object[]
+	 */
+	public Object[] getList() {
+		return list;
+	}
+
 	@Override
 	public boolean isEmpty() {
 		if (objectCount == 0) {

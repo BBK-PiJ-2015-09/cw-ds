@@ -2,9 +2,13 @@ public class ListTest {
 	
 	public static void main(String[] args) {
 		ArrayList arrayList = new ArrayList();
-		LinkedList linkedList = new LinkedList();
 		runTests(arrayList);
+		LinkedList linkedList = new LinkedList();
 		runTests(linkedList);
+		FunctionalArrayList funcArrayList = new FunctionalArrayList();
+		runTests(funcArrayList);
+		funcArrayList = new FunctionalArrayList();
+		runFuncTests(funcArrayList);
 	}
 	
 	private static void runTests(List list) {
@@ -36,6 +40,15 @@ public class ListTest {
 		System.out.println(list.get(0).getReturnValue() == "first object");
 		System.out.println(list.get(1).getReturnValue() == "second object");
 		System.out.println(list.get(2).getReturnValue() == "third object");
+	}
+
+	private static void runFuncTests(FunctionalList list) {
+		list.add("first object");
+		list.add("third object");
+		list.add(1, "second object");
+		System.out.println(list.head().getReturnValue() == "first object");
+		System.out.println(list.rest().get(0).getReturnValue() == "second object");
+		System.out.println(list.rest().get(1).getReturnValue() == "third object");		
 	}
 
 }
