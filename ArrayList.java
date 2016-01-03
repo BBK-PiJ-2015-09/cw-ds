@@ -26,7 +26,7 @@ public class ArrayList implements List {
 
 	@Override
 	public ReturnObject get(int index) {
-		if (index >= list.length || index < 0) {
+		if (index >= objectCount || index < 0) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		} else {
 			return new ReturnObjectImpl(list[index]);
@@ -35,22 +35,28 @@ public class ArrayList implements List {
 
 	@Override
 	public ReturnObject remove(int index) {
-		if (index >= list.length || index < 0) {
+		if (index >= objectCount || index < 0) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		} else {
 			Object removedObject = list[index];
-			list[index] = null;
+			decrementIndices(index + 1);
+			objectCount--;
 			return new ReturnObjectImpl(removedObject);
 		}
 	}
-	
+
 	@Override
 	public ReturnObject add(int index, Object item) {
-		if (index >= list.length || index < 0) {
+		if (index >= objectCount || index < 0) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		} else if (item == null) {
 			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
 		} else {
+			if (index + 1 >= list.length) {
+				expandList();
+			}
+			incrementIndices(index);
+			objectCount++;
 			list[index] = item;
 			if (objectCount == 0) {
 				objectCount = 1;
@@ -95,4 +101,32 @@ public class ArrayList implements List {
 			to[i] = from[i];
 		}
 	}
+
+	/**
+	 * Decrease the index of elements of the list starting at
+	 * the given index and continuing to the end. Remove the duplicate
+	 * element which remains at the end.
+	 *
+	 * @param the first index to decrease at
+	 */
+	private void decrementIndices(int index) {
+		for(int i = index; i < objectCount; i++) {
+			list[index - 1] = list[index];
+		}
+		list[size()] = null;
+	}
+
+	/**
+	 * Increase the index of elements of the list starting at
+	 * the given index and continuing to the end. Leaves a duplicate
+	 * element at the given index.
+	 *
+	 * @param the first index to increase at
+	 */
+	private void incrementIndices(int index) {
+		for(int i = index; i < objectCount; i++) {
+			list[index + 1] = list[index];
+		}
+	}
+
 }
