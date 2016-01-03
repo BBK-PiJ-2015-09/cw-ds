@@ -13,6 +13,8 @@ public class ListTest {
 		runTests(funcLinkedList);
 		funcLinkedList = new FunctionalLinkedList();
 		runFuncTests(funcLinkedList);
+		SampleableListImpl sampleableList = new SampleableListImpl();
+		runSampleableTests(sampleableList);
 	}
 	
 	private static void runTests(List list) {
@@ -53,6 +55,17 @@ public class ListTest {
 		System.out.println(list.head().getReturnValue() == "first object");
 		System.out.println(list.rest().get(0).getReturnValue() == "second object");
 		System.out.println(list.rest().get(1).getReturnValue() == "third object");		
+	}
+
+	private static void runSampleableTests(SampleableList list) {
+		list.add("first object");
+		list.add("third object");
+		list.add(1, "second object");
+		list.add("fourth object");
+		list.add("fifth object");
+		System.out.println(list.sample().get(0).getReturnValue() == "first object");
+		System.out.println(list.sample().get(1).getReturnValue() == "third object");
+		System.out.println(list.sample().get(2).getReturnValue() == "fifth object");
 	}
 
 }
