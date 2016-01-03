@@ -9,6 +9,10 @@ public class ListTest {
 		runTests(funcArrayList);
 		funcArrayList = new FunctionalArrayList();
 		runFuncTests(funcArrayList);
+		FunctionalLinkedList funcLinkedList = new FunctionalLinkedList();
+		runTests(funcLinkedList);
+		funcLinkedList = new FunctionalLinkedList();
+		runFuncTests(funcLinkedList);
 	}
 	
 	private static void runTests(List list) {
