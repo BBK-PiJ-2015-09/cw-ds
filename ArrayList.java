@@ -65,10 +65,11 @@ public class ArrayList implements List {
 				expandList();
 			}
 			incrementIndices(index);
-			objectCount++;
 			list[index] = item;
 			if (objectCount == 0) {
 				objectCount = 1;
+			} else {
+				objectCount++;
 			}
 			return new ReturnObjectImpl();
 		}
