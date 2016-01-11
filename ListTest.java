@@ -30,17 +30,17 @@ public class ListTest {
 		stack.push("second object");
 		stack.push("third object");
 		ImprovedStack reversed = stack.reverse();		
-		System.out.println(reversed.pop().getReturnValue() == "first object");
-		System.out.println(reversed.pop().getReturnValue() == "second object");
-		System.out.println(reversed.pop().getReturnValue() == "third object");
+		runNoErrorTests(reversed.pop(), "first object");
+		runNoErrorTests(reversed.pop(),"second object");
+		runNoErrorTests(reversed.pop(), "third object");
 		System.out.println(reversed.pop().getError() == ErrorMessage.EMPTY_STRUCTURE);
 		System.out.println(stack.size() == 3);
 		stack.remove("first object");
 		System.out.println(stack.size() == 2);
-		System.out.println(stack.top().getReturnValue() == "third object");
+		runNoErrorTests(stack.top(), "third object");
 		stack.remove("third object");
 		System.out.println(stack.size() == 1);
-		System.out.println(stack.top().getReturnValue() == "second object");
+		runNoErrorTests(stack.top(), "second object");
 		stack.remove("second object");
 		System.out.println(stack.size() == 0);
 		System.out.println(stack.isEmpty() == true);
@@ -53,10 +53,10 @@ public class ListTest {
 		System.out.println(stack.size() == 6);
 		stack.remove("first object");
 		System.out.println(stack.size() == 3);
-		System.out.println(stack.top().getReturnValue() == "third object");
+		runNoErrorTests(stack.top(), "third object");
 		stack.remove("third object");
 		System.out.println(stack.size() == 2);
-		System.out.println(stack.top().getReturnValue() == "second object");
+		runNoErrorTests(stack.top(), "second object");
 		stack.remove("second object");
 		System.out.println(stack.size() == 0);
 		System.out.println(stack.isEmpty() == true);
@@ -77,20 +77,22 @@ public class ListTest {
 	}
 	
 	private static void runStackTests(Stack stack) {
+		// should not throw exception
+		Stack nullListStack = new StackImpl(null);
 		System.out.println(stack.isEmpty() == true);
 		System.out.println(stack.size() == 0);
 		stack.push("first object");
 		System.out.println(stack.isEmpty() == false);
 		System.out.println(stack.size() == 1);
-		System.out.println(stack.top().getReturnValue() == "first object");
+		runNoErrorTests(stack.top(), "first object");
 		stack.push("second object");
-		System.out.println(stack.top().getReturnValue() == "second object");
+		runNoErrorTests(stack.top(), "second object");
 		System.out.println(stack.isEmpty() == false);
 		System.out.println(stack.size() == 2);
-		System.out.println(stack.pop().getReturnValue() == "second object");
+		runNoErrorTests(stack.pop(), "second object");
 		System.out.println(stack.isEmpty() == false);
 		System.out.println(stack.size() == 1);
-		System.out.println(stack.pop().getReturnValue() == "first object");
+		runNoErrorTests(stack.pop(), "first object");
 		System.out.println(stack.isEmpty() == true);
 		System.out.println(stack.size() == 0);
 		System.out.println(stack.pop().getError() == ErrorMessage.EMPTY_STRUCTURE);
@@ -107,16 +109,16 @@ public class ListTest {
 		list.add("first object");
 		System.out.println(list.isEmpty() == false);
 		System.out.println(list.size() == 1);
-		System.out.println(list.get(0).getReturnValue() == "first object");
+		runNoErrorTests(list.get(0), "first object");
 		list.add("second object");
 		System.out.println(list.isEmpty() == false);
 		System.out.println(list.size() == 2);
-		System.out.println(list.get(0).getReturnValue() == "first object");
-		System.out.println(list.get(1).getReturnValue() == "second object");
+		runNoErrorTests(list.get(0), "first object");
+		runNoErrorTests(list.get(1), "second object");
 		list.remove(0);
 		System.out.println(list.isEmpty() == false);
 		System.out.println(list.size() == 1);
-		System.out.println(list.get(0).getReturnValue() == "second object");
+		runNoErrorTests(list.get(0), "second object");
 		list.remove(0);
 		System.out.println(list.isEmpty() == true);
 		System.out.println(list.size() == 0);
@@ -126,37 +128,37 @@ public class ListTest {
 		list.add(1, "second object");
 		System.out.println(list.isEmpty() == false);
 		System.out.println(list.size() == 3);
-		System.out.println(list.get(0).getReturnValue() == "first object");
-		System.out.println(list.get(1).getReturnValue() == "second object");
-		System.out.println(list.get(2).getReturnValue() == "third object");
-		System.out.println(list.remove(2).getReturnValue() == "third object");
+		runNoErrorTests(list.get(0), "first object");
+		runNoErrorTests(list.get(1), "second object");
+		runNoErrorTests(list.get(2), "third object");
+		runNoErrorTests(list.remove(2), "third object");
 		System.out.println(list.isEmpty() == false);
 		System.out.println(list.size() == 2);
-		System.out.println(list.remove(1).getReturnValue() == "second object");
+		runNoErrorTests(list.remove(1), "second object");
 		System.out.println(list.isEmpty() == false);
 		System.out.println(list.size() == 1);
-		System.out.println(list.remove(0).getReturnValue() == "first object");
+		runNoErrorTests(list.remove(0), "first object");
 		System.out.println(list.isEmpty() == true);
 		System.out.println(list.size() == 0);
 		System.out.println(list.remove(0).getError() == ErrorMessage.EMPTY_STRUCTURE);
 		list.add("first object");
 		list.add("third object");
-		list.add(1, "second object");
+		runNoErrorTests(list.add(1, "second object"), null);
 		list.remove(0);
-		System.out.println(list.get(0).getReturnValue() == "second object");
-		System.out.println(list.get(1).getReturnValue() == "third object");
+		runNoErrorTests(list.get(0), "second object");
+		runNoErrorTests(list.get(1), "third object");
 		list.add(0, "first object");
 		list.add("fourth object");
-		System.out.println(list.get(0).getReturnValue() == "first object");
-		System.out.println(list.get(1).getReturnValue() == "second object");
-		System.out.println(list.get(2).getReturnValue() == "third object");
-		System.out.println(list.get(3).getReturnValue() == "fourth object");
+		runNoErrorTests(list.get(0), "first object");
+		runNoErrorTests(list.get(1), "second object");
+		runNoErrorTests(list.get(2), "third object");
+		runNoErrorTests(list.get(3), "fourth object");
 		System.out.println(list.get(4).getReturnValue() == null);
 		System.out.println(list.get(4).getError() == ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		list.remove(2);
-		System.out.println(list.get(0).getReturnValue() == "first object");
-		System.out.println(list.get(1).getReturnValue() == "second object");
-		System.out.println(list.get(2).getReturnValue() == "fourth object");
+		runNoErrorTests(list.get(0), "first object");
+		runNoErrorTests(list.get(1), "second object");
+		runNoErrorTests(list.get(2), "fourth object");
 		System.out.println(list.get(3).getReturnValue() == null);
 		System.out.println(list.get(3).getError() == ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		System.out.println(list.get(4).getReturnValue() == null);
@@ -169,9 +171,9 @@ public class ListTest {
 		list.add("first object");
 		list.add("third object");
 		list.add(1, "second object");
-		System.out.println(list.head().getReturnValue() == "first object");
-		System.out.println(list.rest().get(0).getReturnValue() == "second object");
-		System.out.println(list.rest().get(1).getReturnValue() == "third object");		
+		runNoErrorTests(list.head(), "first object");
+		runNoErrorTests(list.rest().get(0), "second object");
+		runNoErrorTests(list.rest().get(1), "third object");		
 	}
 
 	private static void runSampleableTests(SampleableList list) {
@@ -180,14 +182,20 @@ public class ListTest {
 		list.add(1, "second object");
 		list.add("fourth object");
 		list.add("fifth object");
-		System.out.println(list.sample().get(0).getReturnValue() == "first object");
-		System.out.println(list.sample().get(1).getReturnValue() == "third object");
-		System.out.println(list.sample().get(2).getReturnValue() == "fifth object");
+		runNoErrorTests(list.sample().get(0), "first object");
+		runNoErrorTests(list.sample().get(1), "third object");
+		runNoErrorTests(list.sample().get(2), "fifth object");
 		list.remove(0);	
-		System.out.println(list.sample().get(0).getReturnValue() == "second object");
-		System.out.println(list.sample().get(1).getReturnValue() == "fourth object");
+		runNoErrorTests(list.sample().get(0), "second object");
+		runNoErrorTests(list.sample().get(1), "fourth object");
 		System.out.println(list.sample().get(2).getReturnValue() == null);
 		System.out.println(list.sample().get(2).getError() == ErrorMessage.INDEX_OUT_OF_BOUNDS);
+	}
+
+	private static void runNoErrorTests(ReturnObject returnObject, Object returnValue) {
+		if (returnObject.hasError() || returnObject.getError() != ErrorMessage.NO_ERROR || returnObject.getReturnValue() != returnValue) {
+			System.out.println("runNoErrorTests FAILED!!!");
+		}
 	}
 
 }
