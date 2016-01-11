@@ -15,6 +15,14 @@ public class ListTest {
 		runFuncTests(funcLinkedList);
 		SampleableListImpl sampleableList = new SampleableListImpl();
 		runSampleableTests(sampleableList);
+		LinkedList stackList = new LinkedList();
+		StackImpl stack = new StackImpl(stackList);
+		runStackTests(stack);
+	}
+	
+	private static void runStackTests(AbstractStack stack) {
+		System.out.println(stack.isEmpty() == true);
+		System.out.println(stack.size() == 0);
 	}
 	
 	private static void runTests(List list) {
