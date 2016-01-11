@@ -34,6 +34,33 @@ public class ListTest {
 		System.out.println(reversed.pop().getReturnValue() == "second object");
 		System.out.println(reversed.pop().getReturnValue() == "third object");
 		System.out.println(reversed.pop().getError() == ErrorMessage.EMPTY_STRUCTURE);
+		System.out.println(stack.size() == 3);
+		stack.remove("first object");
+		System.out.println(stack.size() == 2);
+		System.out.println(stack.top().getReturnValue() == "third object");
+		stack.remove("third object");
+		System.out.println(stack.size() == 1);
+		System.out.println(stack.top().getReturnValue() == "second object");
+		stack.remove("second object");
+		System.out.println(stack.size() == 0);
+		System.out.println(stack.isEmpty() == true);
+		stack.push("first object");
+		stack.push("first object");
+		stack.push("first object");
+		stack.push("second object");
+		stack.push("second object");
+		stack.push("third object");
+		System.out.println(stack.size() == 6);
+		stack.remove("first object");
+		System.out.println(stack.size() == 3);
+		System.out.println(stack.top().getReturnValue() == "third object");
+		stack.remove("third object");
+		System.out.println(stack.size() == 2);
+		System.out.println(stack.top().getReturnValue() == "second object");
+		stack.remove("second object");
+		System.out.println(stack.size() == 0);
+		System.out.println(stack.isEmpty() == true);
+		System.out.println(stack.pop().getError() == ErrorMessage.EMPTY_STRUCTURE);
 	}
 	
 	private static void runStackTests(Stack stack) {

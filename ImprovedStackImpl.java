@@ -25,7 +25,16 @@ public class ImprovedStackImpl implements ImprovedStack {
 
 	@Override
 	public void remove(Object object) {
-		
+		ImprovedStackImpl keep = new ImprovedStackImpl();
+		for(int i = stack.size(); i > 0; i--) {
+			Object temp = stack.pop().getReturnValue();
+			if (!temp.equals(object)) {
+				keep.push(temp);
+			}
+		}
+		for(int i = keep.size(); i > 0; i--) {
+			stack.push(keep.pop().getReturnValue());
+		}
 	}
 
 	@Override
