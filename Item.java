@@ -6,8 +6,8 @@ public class Item {
 	/**
 	 * Constructor
 	 *
-	 * @param the object to be saved
-	 * @param this item's index in the list
+	 * @param object the object to be saved
+	 * @param index this item's index in the list
 	 */
 	public Item(Object object, int index) {
 		this.object = object;
@@ -35,7 +35,7 @@ public class Item {
 	/**
 	 * nextItem setter
 	 *
-	 * @param nextItem
+	 * @param nextItem the item to be set
 	 */
 	public void setNext(Item nextItem) {
 		this.nextItem = nextItem;
@@ -54,7 +54,7 @@ public class Item {
 	 * If the index matches this item's index, return
 	 * the object; otherwise call get on the nextItem.
 	 *
-  	 * @param the index of the object to be returned	
+  	 * @param index the index of the object to be returned	
 	 * @return the object to be returned
 	 */
 	public Object get(int index) {
@@ -72,7 +72,7 @@ public class Item {
 	 * removed object.
 	 * Otherwise call remove on the nextItem.
 	 *
-	 * @param the index to be removed
+	 * @param index the index of the item to be removed
 	 * @return the object of the removed Item
 	 */
 	public Object remove(int index) {
@@ -95,8 +95,8 @@ public class Item {
 	 * insert the new object as nextItem and increment 
 	 * the indices of the successor items by 1.
 	 *
-  	 * @param the index location for the new item
-	 * @param the new object
+  	 * @param index the index location for the new object
+	 * @param object the new object
 	 */
 	public void add(int index, Object object) {
 		if (nextItem.getIndex() == index) {
@@ -113,7 +113,7 @@ public class Item {
 	 * Add the next item in the list, or if there 
 	 * is already one, pass it to the next item. 
 	 * 
-  	 * @param the object to be saved	
+  	 * @param object the object to be saved	
 	 */
 	public void add(Object object) {
 		if (nextItem == null) {

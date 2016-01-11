@@ -98,8 +98,8 @@ public class ArrayList implements List {
 	 * Copy from one array to another.
 	 * Does not check array size.
 	 *
-	 * @param the Object[] to copy from
-	 * @param the Object[] to copy to
+	 * @param from the Object[] to copy from
+	 * @param to the Object[] to copy to
 	 */
 	private void copyArray(Object[] from, Object[] to) {
 		for(int i = 0; i < from.length; i++) {
@@ -112,7 +112,7 @@ public class ArrayList implements List {
 	 * the given index and continuing to the end. Remove the duplicate
 	 * element which remains at the end.
 	 *
-	 * @param the first index to decrease at
+	 * @param index the first index to decrease at
 	 */
 	private void decrementIndices(int index) {
 		for(int i = index; i < objectCount; i++) {
@@ -126,7 +126,7 @@ public class ArrayList implements List {
 	 * the given index and continuing to the end. Leaves a duplicate
 	 * element at the given index.
 	 *
-	 * @param the first index to increase at
+	 * @param index the first index to increase at
 	 */
 	private void incrementIndices(int index) {
 		for(int i = index; i < objectCount; i++) {

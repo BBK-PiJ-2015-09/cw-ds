@@ -5,7 +5,7 @@ public class ReturnObjectImpl implements ReturnObject {
 	/**
 	 * Constructor with object. Sets errorMessage to NO_ERROR.
 	 * 
-	 * @param object to be saved
+	 * @param object the object to be saved
 	 */
 	public ReturnObjectImpl(Object object) {
 		this.object = object;
@@ -15,7 +15,7 @@ public class ReturnObjectImpl implements ReturnObject {
 	/**
 	 * Constructor with errorMessage. Sets object to null.
 	 * 
-	 * @param error message to be saved
+	 * @param errorMessage the error message to be saved
 	 */
 	public ReturnObjectImpl(ErrorMessage errorMessage) {
 		object = null;

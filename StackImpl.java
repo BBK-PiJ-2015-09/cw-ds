@@ -2,6 +2,8 @@ public class StackImpl extends AbstractStack {
 	
 	/**
 	 * Constructor
+	 *
+	 * @param list the list to be used as the stack
 	 */
 	public StackImpl(List list) {
   	  super(list);
