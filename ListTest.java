@@ -70,6 +70,16 @@ public class ListTest {
 		System.out.println(list.get(0).getReturnValue() == "first object");
 		System.out.println(list.get(1).getReturnValue() == "second object");
 		System.out.println(list.get(2).getReturnValue() == "third object");
+		System.out.println(list.remove(2).getReturnValue() == "third object");
+		System.out.println(list.isEmpty() == false);
+		System.out.println(list.size() == 2);
+		System.out.println(list.remove(1).getReturnValue() == "second object");
+		System.out.println(list.isEmpty() == false);
+		System.out.println(list.size() == 1);
+		System.out.println(list.remove(0).getReturnValue() == "first object");
+		System.out.println(list.isEmpty() == true);
+		System.out.println(list.size() == 0);
+		System.out.println(list.remove(0).getError() == ErrorMessage.INDEX_OUT_OF_BOUNDS);
 	}
 
 	private static void runFuncTests(FunctionalList list) {
