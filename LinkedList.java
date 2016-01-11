@@ -14,7 +14,9 @@ public class LinkedList implements List {
 
 	@Override
 	public ReturnObject get(int index) {
-		if (index >= size || index < 0) {
+	    if (firstItem == null) {
+			return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
+		} else if (index >= size || index < 0) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		} else {
 			return new ReturnObjectImpl(firstItem.get(index));
@@ -23,7 +25,9 @@ public class LinkedList implements List {
 
 	@Override
 	public ReturnObject remove(int index) {
-		if (index >= size || index < 0) {
+	    if (firstItem == null) {
+			return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
+		} else if (index >= size || index < 0) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		} else if (firstItem.getIndex() == index) {
 			Object removedObject = firstItem.getObject();

@@ -26,7 +26,9 @@ public class ArrayList implements List {
 
 	@Override
 	public ReturnObject get(int index) {
-		if (index >= objectCount || index < 0) {
+		if (isEmpty()) {
+			return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
+		} else if (index >= objectCount || index < 0) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		} else {
 			return new ReturnObjectImpl(list[index]);
@@ -35,7 +37,9 @@ public class ArrayList implements List {
 
 	@Override
 	public ReturnObject remove(int index) {
-		if (index >= objectCount || index < 0) {
+		if (isEmpty()) {
+			return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
+		} else if (index >= objectCount || index < 0) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		} else {
 			Object removedObject = list[index];
