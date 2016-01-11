@@ -1,14 +1,14 @@
 public class ImprovedStackImpl implements ImprovedStack {
 	private StackImpl stack;
 
-	public ImprovedStackImpl() {
-		this.stack = new StackImpl(new ArrayList());
+	public ImprovedStackImpl(List list) {
+		this.stack = new StackImpl(list);
 	}
 
 	@Override
 	public ImprovedStack reverse() {
-		ImprovedStackImpl cache = new ImprovedStackImpl();
-		ImprovedStackImpl reversed = new ImprovedStackImpl();
+		ImprovedStackImpl cache = new ImprovedStackImpl(new ArrayList());
+		ImprovedStackImpl reversed = new ImprovedStackImpl(new ArrayList());
 		int sizeCache = size();
 		for(int i = sizeCache; i > 0; i--) {
 			cache.push(stack.top().getReturnValue());
@@ -22,7 +22,7 @@ public class ImprovedStackImpl implements ImprovedStack {
 
 	@Override
 	public void remove(Object object) {
-		ImprovedStackImpl keep = new ImprovedStackImpl();
+		ImprovedStackImpl keep = new ImprovedStackImpl(new ArrayList());
 		for(int i = stack.size(); i > 0; i--) {
 			Object temp = stack.pop().getReturnValue();
 			if (!temp.equals(object)) {

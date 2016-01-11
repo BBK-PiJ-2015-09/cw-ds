@@ -18,7 +18,8 @@ public class ListTest {
 		LinkedList stackList = new LinkedList();
 		StackImpl stack = new StackImpl(stackList);
 		runStackTests(stack);
-		ImprovedStackImpl improvedStack = new ImprovedStackImpl();
+		ArrayList stackArrayList = new ArrayList();
+		ImprovedStackImpl improvedStack = new ImprovedStackImpl(stackArrayList);
 		runStackTests(improvedStack);
 		runImprovedStackTests(improvedStack);
 	}
