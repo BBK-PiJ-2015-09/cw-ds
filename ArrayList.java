@@ -116,7 +116,7 @@ public class ArrayList implements List {
 	 */
 	private void decrementIndices(int index) {
 		for(int i = index; i < objectCount; i++) {
-			list[index - 1] = list[index];
+			list[i - 1] = list[i];
 		}
 		list[size()] = null;
 	}

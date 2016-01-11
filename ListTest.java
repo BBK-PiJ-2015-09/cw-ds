@@ -87,6 +87,7 @@ public class ListTest {
 		System.out.println(list.isEmpty() == true);
 		System.out.println(list.size() == 0);
 		System.out.println(list.get(0).getError() == ErrorMessage.EMPTY_STRUCTURE);
+		System.out.println(list.get(0).getReturnValue() == null);
 		list.add("first object");
 		System.out.println(list.isEmpty() == false);
 		System.out.println(list.size() == 1);
@@ -122,6 +123,13 @@ public class ListTest {
 		System.out.println(list.isEmpty() == true);
 		System.out.println(list.size() == 0);
 		System.out.println(list.remove(0).getError() == ErrorMessage.EMPTY_STRUCTURE);
+		
+		list.add("first object");
+		list.add("third object");
+		list.add(1, "second object");
+		list.remove(0);
+		System.out.println(list.get(0).getReturnValue() == "second object");
+		System.out.println(list.get(1).getReturnValue() == "third object");
 	}
 
 	private static void runFuncTests(FunctionalList list) {
@@ -142,6 +150,9 @@ public class ListTest {
 		System.out.println(list.sample().get(0).getReturnValue() == "first object");
 		System.out.println(list.sample().get(1).getReturnValue() == "third object");
 		System.out.println(list.sample().get(2).getReturnValue() == "fifth object");
+		list.remove(0);	
+		System.out.println(list.sample().get(0).getReturnValue() == "second object");
+		System.out.println(list.sample().get(1).getReturnValue() == "fourth object");
 	}
 
 }
