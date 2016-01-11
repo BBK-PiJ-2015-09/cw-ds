@@ -18,9 +18,25 @@ public class ListTest {
 		LinkedList stackList = new LinkedList();
 		StackImpl stack = new StackImpl(stackList);
 		runStackTests(stack);
+		ImprovedStackImpl improvedStack = new ImprovedStackImpl();
+		runStackTests(improvedStack);
+		runImprovedStackTests(improvedStack);
 	}
 	
-	private static void runStackTests(AbstractStack stack) {
+	private static void runImprovedStackTests(ImprovedStack stack) {
+		System.out.println(stack.isEmpty() == true);
+		System.out.println(stack.size() == 0);
+		stack.push("first object");
+		stack.push("second object");
+		stack.push("third object");
+		ImprovedStack reversed = stack.reverse();		
+		System.out.println(reversed.pop().getReturnValue() == "first object");
+		System.out.println(reversed.pop().getReturnValue() == "second object");
+		System.out.println(reversed.pop().getReturnValue() == "third object");
+		System.out.println(reversed.pop().getError() == ErrorMessage.EMPTY_STRUCTURE);
+	}
+	
+	private static void runStackTests(Stack stack) {
 		System.out.println(stack.isEmpty() == true);
 		System.out.println(stack.size() == 0);
 		stack.push("first object");
