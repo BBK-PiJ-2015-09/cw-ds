@@ -27,9 +27,11 @@ public class LinkedList implements List {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		} else if (firstItem.getIndex() == index) {
 			Object removedObject = firstItem.getObject();
-			firstItem = firstItem.getNext();
-			if (firstItem != null) {
-				firstItem.decrementIndex();
+			if (firstItem.getNext() == null) {
+				firstItem = null;
+			} else {
+				firstItem = firstItem.getNext();
+				firstItem.decrementIndex();	
 			}
 			size--;
 			return new ReturnObjectImpl(removedObject);

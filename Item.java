@@ -78,8 +78,12 @@ public class Item {
 	public Object remove(int index) {
 		if (nextItem.getIndex() == index) {
 			Object removedObject = nextItem.getObject();
-			nextItem = nextItem.getNext();
-			nextItem.decrementIndex();
+			if (nextItem.getNext() != null) {
+				nextItem = nextItem.getNext();
+				nextItem.decrementIndex();
+			} else {
+				nextItem = null;
+			}
 			return removedObject;
 		} else {
 			return nextItem.remove(index);

@@ -46,13 +46,13 @@ public interface Stack {
 	 */
 	public ReturnObject top();
 
-	// /**
-	//  * Returns the element at the top of the stack. The element is
-	//  * removed frmo the stack.
-	//  *
-	//  * @return If stack is not empty, the item on the top is returned. If the
-	//  *         stack is empty, an appropriate error.
-	//  */
-	// public ReturnObject pop();
+	/**
+	 * Returns the element at the top of the stack. The element is
+	 * removed frmo the stack.
+	 *
+	 * @return If stack is not empty, the item on the top is returned. If the
+	 *         stack is empty, an appropriate error.
+	 */
+	public ReturnObject pop();
 }
 

@@ -27,6 +27,18 @@ public class ListTest {
 		System.out.println(stack.isEmpty() == false);
 		System.out.println(stack.size() == 1);
 		System.out.println(stack.top().getReturnValue() == "first object");
+		stack.push("second object");
+		System.out.println(stack.top().getReturnValue() == "second object");
+		System.out.println(stack.isEmpty() == false);
+		System.out.println(stack.size() == 2);
+		System.out.println(stack.pop().getReturnValue() == "second object");
+		System.out.println(stack.isEmpty() == false);
+		System.out.println(stack.size() == 1);
+		System.out.println(stack.pop().getReturnValue() == "first object");
+		// System.out.println(stack.top().getReturnValue());
+		System.out.println(stack.isEmpty() == true);
+		System.out.println(stack.size() == 0);
+		System.out.println(stack.pop().getError() == ErrorMessage.INDEX_OUT_OF_BOUNDS);
 	}
 	
 	private static void runTests(List list) {

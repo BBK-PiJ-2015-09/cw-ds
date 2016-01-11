@@ -26,5 +26,10 @@ public class StackImpl extends AbstractStack {
 	public ReturnObject top() {
 		return internalList.get(size() - 1);
 	}
+
+	@Override
+	public ReturnObject pop() {
+		return internalList.remove(size() - 1);
+	}
 	
 }
