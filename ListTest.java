@@ -61,6 +61,19 @@ public class ListTest {
 		System.out.println(stack.size() == 0);
 		System.out.println(stack.isEmpty() == true);
 		System.out.println(stack.pop().getError() == ErrorMessage.EMPTY_STRUCTURE);
+		stack.push(null);
+		System.out.println(stack.pop().getReturnValue() == null);
+		System.out.println(stack.pop().getError() == ErrorMessage.EMPTY_STRUCTURE);
+		stack.remove(null);
+		stack.push("first object");
+		stack.push("first object");
+		stack.push("first object");
+		stack.push("second object");
+		stack.push("second object");
+		stack.push("third object");
+		System.out.println(stack.size() == 6);
+		stack.remove(null);
+		System.out.println(stack.size() == 6);
 	}
 	
 	private static void runStackTests(Stack stack) {
@@ -88,6 +101,9 @@ public class ListTest {
 		System.out.println(list.size() == 0);
 		System.out.println(list.get(0).getError() == ErrorMessage.EMPTY_STRUCTURE);
 		System.out.println(list.get(0).getReturnValue() == null);
+		list.add(null);
+		System.out.println(list.get(0).getReturnValue() == null);
+		System.out.println(list.get(0).getError() == ErrorMessage.EMPTY_STRUCTURE);
 		list.add("first object");
 		System.out.println(list.isEmpty() == false);
 		System.out.println(list.size() == 1);
@@ -123,7 +139,6 @@ public class ListTest {
 		System.out.println(list.isEmpty() == true);
 		System.out.println(list.size() == 0);
 		System.out.println(list.remove(0).getError() == ErrorMessage.EMPTY_STRUCTURE);
-		
 		list.add("first object");
 		list.add("third object");
 		list.add(1, "second object");
@@ -153,6 +168,8 @@ public class ListTest {
 		list.remove(0);	
 		System.out.println(list.sample().get(0).getReturnValue() == "second object");
 		System.out.println(list.sample().get(1).getReturnValue() == "fourth object");
+		System.out.println(list.sample().get(2).getReturnValue() == null);
+		System.out.println(list.sample().get(2).getError() == ErrorMessage.INDEX_OUT_OF_BOUNDS);
 	}
 
 }
