@@ -1,6 +1,11 @@
 public class ImprovedStackImpl implements ImprovedStack {
 	private StackImpl stack;
 
+	/**
+	 * Constructor
+	 *
+	 * @param list the list to save the stack onto
+	 */
 	public ImprovedStackImpl(List list) {
 		this.stack = new StackImpl(list);
 	}

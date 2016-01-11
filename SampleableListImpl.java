@@ -1,5 +1,6 @@
 public class SampleableListImpl extends ArrayList implements SampleableList {
 	
+	@Override
 	public SampleableListImpl sample() {
 		if (isEmpty()) {
 			return new SampleableListImpl();		
