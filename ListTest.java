@@ -167,7 +167,14 @@ public class ListTest {
 		System.out.println(list.get(4).getReturnValue() == null);
 		System.out.println(list.get(4).getError() == ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		System.out.println(list.get(-4).getError() == ErrorMessage.INDEX_OUT_OF_BOUNDS);
-		System.out.println(list.get(100000000).getError() == ErrorMessage.INDEX_OUT_OF_BOUNDS);		
+		System.out.println(list.get(100_000_000).getError() == ErrorMessage.INDEX_OUT_OF_BOUNDS);
+		list.remove(0);
+		list.remove(0);
+		list.remove(0);
+		System.out.println(list.isEmpty() == true);
+		for(int i = 0; i < 1_000_000; i++) {
+			list.add(i);
+		}
 	}
 
 	private static void runFuncTests(FunctionalList list) {

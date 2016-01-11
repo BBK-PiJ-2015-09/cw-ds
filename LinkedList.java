@@ -1,5 +1,6 @@
 public class LinkedList implements List {
 	private Item firstItem;
+	private Item lastItem;
 	private int size;
 
 	@Override
@@ -72,10 +73,12 @@ public class LinkedList implements List {
 		} else {
 			if (firstItem == null) {
 				firstItem = new Item(item, 0);
+				lastItem = firstItem;
 				size = 1;
 				return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
 			} else {
-				firstItem.add(item);
+				lastItem.add(item);
+				lastItem = lastItem.getNext();
 				size++;
 				return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
 			}
