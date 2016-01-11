@@ -1,14 +1,6 @@
 public class ArrayList implements List {
 	private Object[] list;
-	private int objectCount;
-
-	/**
-	 * Constructor
-	 */
-	public ArrayList() {
-		list = new Object[1];
-		objectCount = 0;
-	}
+	private int objectCount = 0;
 
 	@Override
 	public boolean isEmpty() {
@@ -51,7 +43,7 @@ public class ArrayList implements List {
 
 	@Override
 	public ReturnObject add(int index, Object item) {
-		if (index >= objectCount || index < 0) {
+		if (index >= objectCount || index < 0 || list == null) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		} else if (item == null) {
 			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
@@ -72,6 +64,9 @@ public class ArrayList implements List {
 	
 	@Override
 	public ReturnObject add(Object item) {
+		if (list == null) {
+			list = new Object[1];
+		}
 		if (item == null) {
 			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
 		} else {
