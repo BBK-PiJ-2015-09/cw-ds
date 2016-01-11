@@ -24,11 +24,11 @@ public class ReturnObjectImpl implements ReturnObject {
 	
 	/**
 	 * Constructor without params.
-	 * Sets object to null. Sets errorMessage to null.
+	 * Sets object to null. Sets errorMessage to NO_ERROR.
 	 */
 	public ReturnObjectImpl() {
 		object = null;
-		errorMessage = null;
+		errorMessage = ErrorMessage.NO_ERROR;
 	}
 	
 	@Override
