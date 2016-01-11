@@ -2,12 +2,9 @@ public class ImprovedStackImpl implements ImprovedStack {
 	private StackImpl stack;
 
 	public ImprovedStackImpl() {
-		this.stack = new StackImpl(new LinkedList());
+		this.stack = new StackImpl(new ArrayList());
 	}
 
-	/*
-	 * Have to rebuild the original stack after removing everything. slow!	
-	 */
 	@Override
 	public ImprovedStack reverse() {
 		ImprovedStackImpl cache = new ImprovedStackImpl();
