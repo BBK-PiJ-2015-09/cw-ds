@@ -145,6 +145,24 @@ public class ListTest {
 		list.remove(0);
 		System.out.println(list.get(0).getReturnValue() == "second object");
 		System.out.println(list.get(1).getReturnValue() == "third object");
+		list.add(0, "first object");
+		list.add("fourth object");
+		System.out.println(list.get(0).getReturnValue() == "first object");
+		System.out.println(list.get(1).getReturnValue() == "second object");
+		System.out.println(list.get(2).getReturnValue() == "third object");
+		System.out.println(list.get(3).getReturnValue() == "fourth object");
+		System.out.println(list.get(4).getReturnValue() == null);
+		System.out.println(list.get(4).getError() == ErrorMessage.INDEX_OUT_OF_BOUNDS);
+		list.remove(2);
+		System.out.println(list.get(0).getReturnValue() == "first object");
+		System.out.println(list.get(1).getReturnValue() == "second object");
+		System.out.println(list.get(2).getReturnValue() == "fourth object");
+		System.out.println(list.get(3).getReturnValue() == null);
+		System.out.println(list.get(3).getError() == ErrorMessage.INDEX_OUT_OF_BOUNDS);
+		System.out.println(list.get(4).getReturnValue() == null);
+		System.out.println(list.get(4).getError() == ErrorMessage.INDEX_OUT_OF_BOUNDS);
+		System.out.println(list.get(-4).getError() == ErrorMessage.INDEX_OUT_OF_BOUNDS);
+		System.out.println(list.get(100000000).getError() == ErrorMessage.INDEX_OUT_OF_BOUNDS);		
 	}
 
 	private static void runFuncTests(FunctionalList list) {
