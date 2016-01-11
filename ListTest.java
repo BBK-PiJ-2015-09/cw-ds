@@ -23,6 +23,10 @@ public class ListTest {
 	private static void runStackTests(AbstractStack stack) {
 		System.out.println(stack.isEmpty() == true);
 		System.out.println(stack.size() == 0);
+		stack.push("first object");
+		System.out.println(stack.isEmpty() == false);
+		System.out.println(stack.size() == 1);
+		System.out.println(stack.top().getReturnValue() == "first object");
 	}
 	
 	private static void runTests(List list) {

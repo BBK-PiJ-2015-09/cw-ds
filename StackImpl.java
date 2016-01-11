@@ -17,4 +17,14 @@ public class StackImpl extends AbstractStack {
 		return internalList.size();
 	}
 	
+	@Override
+	public void push(Object item) {
+		internalList.add(item);
+	}
+	
+	@Override
+	public ReturnObject top() {
+		return internalList.get(size() - 1);
+	}
+	
 }
