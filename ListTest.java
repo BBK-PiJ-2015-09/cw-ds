@@ -129,7 +129,7 @@ public class ListTest {
 		System.out.println(list.isEmpty() == false);
 		System.out.println(list.size() == 3);
 		runNoErrorTests(list.get(0), "first object");
-		runNoErrorTests(list.get(1), "second object");
+		runNoErrorTests(list.get(1), "second object");		
 		runNoErrorTests(list.get(2), "third object");
 		runNoErrorTests(list.remove(2), "third object");
 		System.out.println(list.isEmpty() == false);
@@ -144,6 +144,8 @@ public class ListTest {
 		list.add("first object");
 		list.add("third object");
 		runNoErrorTests(list.add(1, "second object"), null);
+		runNoErrorTests(list.add(1, "second object"), null);		
+		list.remove(0);
 		list.remove(0);
 		runNoErrorTests(list.get(0), "second object");
 		runNoErrorTests(list.get(1), "third object");

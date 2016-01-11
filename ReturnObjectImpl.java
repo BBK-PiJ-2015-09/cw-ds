@@ -22,15 +22,6 @@ public class ReturnObjectImpl implements ReturnObject {
 		this.errorMessage = errorMessage;
 	}
 	
-	/**
-	 * Constructor without params.
-	 * Sets object to null. Sets errorMessage to NO_ERROR.
-	 */
-	public ReturnObjectImpl() {
-		object = null;
-		errorMessage = ErrorMessage.NO_ERROR;
-	}
-	
 	@Override
 	public boolean hasError() {
 		return errorMessage != ErrorMessage.NO_ERROR;

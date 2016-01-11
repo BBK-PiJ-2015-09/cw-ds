@@ -56,7 +56,7 @@ public class ArrayList implements List {
 		} else if (item == null) {
 			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
 		} else {
-			if (index + 1 >= list.length) {
+			if (size() + 1 >= list.length) {
 				expandList();
 			}
 			incrementIndices(index);
@@ -115,7 +115,7 @@ public class ArrayList implements List {
 	 * @param index the first index to decrease at
 	 */
 	private void decrementIndices(int index) {
-		for(int i = index; i < objectCount; i++) {
+		for(int i = index; i < size(); i++) {
 			list[i - 1] = list[i];
 		}
 		list[size()] = null;
@@ -129,8 +129,8 @@ public class ArrayList implements List {
 	 * @param index the first index to increase at
 	 */
 	private void incrementIndices(int index) {
-		for(int i = index; i < objectCount; i++) {
-			list[index + 1] = list[index];
+		for(int i = size(); i > index; i--) {
+			list[i] = list[i - 1];
 		}
 	}
 
