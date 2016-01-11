@@ -66,7 +66,7 @@ public class ArrayList implements List {
 			} else {
 				objectCount++;
 			}
-			return new ReturnObjectImpl();
+			return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
 		}
 	}
 	
@@ -80,7 +80,7 @@ public class ArrayList implements List {
 			}
 			list[objectCount] = item;
 			objectCount++;
-			return new ReturnObjectImpl();
+			return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
 		}
 	}
 	

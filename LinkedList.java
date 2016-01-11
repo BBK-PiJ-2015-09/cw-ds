@@ -57,11 +57,11 @@ public class LinkedList implements List {
 			firstItem.setNext(oldFirstItem);
 			oldFirstItem.incrementIndex();
 			size++;
-			return new ReturnObjectImpl();
+			return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
 		} else {
 			firstItem.add(index, item);
 			size++;
-			return new ReturnObjectImpl();
+			return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
 		}
 	}
 
@@ -73,11 +73,11 @@ public class LinkedList implements List {
 			if (firstItem == null) {
 				firstItem = new Item(item, 0);
 				size = 1;
-				return new ReturnObjectImpl();
+				return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
 			} else {
 				firstItem.add(item);
 				size++;
-				return new ReturnObjectImpl();
+				return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
 			}
 		}
 	}
